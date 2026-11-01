@@ -31,8 +31,26 @@ client  ────────────────────────
 | `prometheus.yml` | Prometheus 抓取配置 |
 | `grafana-dashboard.json` | Grafana 仪表盘（请求率/错误率/P99/熔断状态） |
 | `demo.sh` | 演示辅助脚本（start/break/restore/stop/status） |
+| `chaos_test.sh` | 一键混沌测试（CLOSED→宕机→恢复，自动截图） |
+| `requirements.txt` | Python 依赖清单 |
 | `ADR.md` | 架构决策记录（fallback 策略） |
 | `Chaos_Test_Report.md` | 混沌测试报告 |
+| `screenshots/` | Grafana 截图证据（本地生成，不入库） |
+
+## 环境准备
+
+```bash
+# 1) Python 虚拟环境 + 依赖
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# 2) LLM：本地 Ollama（推荐，免费）
+ollama pull llama3.2:1b
+ollama serve          # 或打开 Ollama.app
+
+# 3) Docker Desktop（跑 Prometheus + Grafana）
+```
 
 ## 弹性参数（全部可用环境变量覆盖）
 

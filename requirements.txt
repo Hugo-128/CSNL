@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+tenacity>=8.2
+prometheus-client>=0.20
+httpx>=0.27
+
+# 可选：截图用（chaos_test.sh 会自动生成 Grafana 截图）
+playwright>=1.40

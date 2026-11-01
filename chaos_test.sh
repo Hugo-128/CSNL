@@ -59,6 +59,7 @@ echo "  breaker: $(curl -s --noproxy '*' $BASE/health)"
 echo ""
 echo "=== 完成，等待 Grafana 刷新后截图 ==="
 sleep 6
+mkdir -p screenshots
 .venv/bin/python << 'EOF'
 from playwright.sync_api import sync_playwright
 chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
@@ -74,7 +75,7 @@ with sync_playwright() as p:
         pg.wait_for_load_state("networkidle")
     pg.goto(url, wait_until="networkidle")
     pg.wait_for_timeout(4000)
-    pg.screenshot(path="grafana_chaos.png", full_page=False)
+    pg.screenshot(path="screenshots/grafana_chaos.png", full_page=False)
     b.close()
-print("截图: grafana_chaos.png")
+print("截图: screenshots/grafana_chaos.png")
 EOF
