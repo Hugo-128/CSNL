@@ -2,6 +2,8 @@
 
 UCD Distributed Systems (2026-27). FastAPI + Tenacity implementation.
 
+> 📖 完整从零到验收的教程见 **[TUTORIAL.md](TUTORIAL.md)**。
+
 ## 架构
 
 ```
@@ -33,6 +35,7 @@ client  ────────────────────────
 | `demo.sh` | 演示辅助脚本（start/break/restore/stop/status） |
 | `chaos_test.sh` | 一键混沌测试（CLOSED→宕机→恢复，自动截图） |
 | `requirements.txt` | Python 依赖清单 |
+| `TUTORIAL.md` | 从零到验收的完整教程 |
 | `ADR.md` | 架构决策记录（fallback 策略） |
 | `Chaos_Test_Report.md` | 混沌测试报告 |
 | `screenshots/` | Grafana 截图证据（本地生成，不入库） |
